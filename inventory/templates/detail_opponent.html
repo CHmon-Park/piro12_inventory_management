@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{invens.desc}}
+    <hr/>
+    <hr/>
+    <div class="box">
+            <div>
+                {{invens.image}}
+                {{invens.name}}
+                가격: {{invens.price}}
+                남은 수량: {{invens.quantity}}
+                제품 설명: {{invens.desc}}
+                거래처: {{invens.opponent}}
+            </div>
+    </div>
+    <div>
+        <form action="{% url 'create_inven' invens.pk %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">수정</button>
+        </form>
+        <form action="{% url 'create_inven' invens.pk %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">삭제</button>
+        </form>
+        <form action="{% url 'list_inven' %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">목록</button>
+        </form>
+    </div>
+{% endblock %}

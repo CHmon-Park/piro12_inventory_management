@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br/>
+    <span style="align:center; width:500px;">
+
+        {%  for inven in invens  %}
+            <span style="width:30px;">
+                <a class="list-group-item" href="{% url 'detail_inven' inven.pk %}">
+                    <li style="list-style:none;">{{ inven.name }}</li>
+                </a>
+            </span>
+        {% endfor %}
+    </span>
+{% endblock %}

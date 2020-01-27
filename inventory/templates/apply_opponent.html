@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'create_inven' %}" method="POST">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="name">이름</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="이름">
+      </div>
+      <div class="form-group">
+        <label for="image">이미지</label>
+        <textarea class="form-control" name="image" id="image" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="desc">설명</label>
+        <input type="text" class="form-control" name="desc" id="desc" placeholder="설명">
+      </div>
+      <div class="form-group">
+        <label for="price">가격</label>
+        <input type="text" class="form-control" name="price" id="price" placeholder="가격">
+      </div>
+      <div class="form-group">
+        <label for="quantity">수량</label>
+        <input type="text" class="form-control" name="quantity" id="quantity" placeholder="수량">
+      </div>
+      <div class="form-group">
+        <label for="opponent">거래처</label>
+        <input type="text" class="form-control" name="opponent" id="opponent" placeholder="거래처">
+      </div>
+        <button class="btn btn-primary" type="submit">작성하기</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br/>
+    <a href="{% url 'create_inven' %}" class="btn btn-primary">게시물 작성하기</a>
+    <div>
+        <ul class="list-group list-group-flush">
+            {%  for inven in invens  %}
+                <a class="list-group-item" href="{% url 'detail_inven' inven.pk %}">
+                    <li style="list-style:none;">{{ inven.name }}</li>
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
